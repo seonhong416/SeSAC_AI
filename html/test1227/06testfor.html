@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+
+<script>
+    function mydan(){
+        dan=5;
+        msg='';
+        for(k=1;k<10; k++){ //k++단항연산
+            msg += dan+'*'+k+'='+(dan*k)+ '<br>';
+        //    document.write(dan,'*',k,'=',(dan*k), '<br>');
+            
+        }
+        document.getElementById('display').innerHTML = msg;
+    }
+    
+</script>
+</head>
+<body>
+    <h2>06testfor.html 자바스크립트연습</h2>
+    <div id="display"></div>
+    <input type="button" value="데이터확인" onclick="mydan();">
+</body>
+</html>

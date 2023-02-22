@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    function myemp(){
+        fruits = ['coffee', '동네커피', '오렌지귤', '딸기', '샌드위치']
+        
+        emp = [
+            {name: '네이버', url : "http://www.naver.com"},
+            {name: '파이썬', url : "http://www.python.org"},
+            {name: '카카오', url : "http://www.daum.net"}
+        ];
+
+        // data = ''
+        //for(k=0; k<emp.length; k++){
+        //    data += emp[k].name + ' ' + emp[k]url+ '<br>';
+        //}
+
+        
+        
+        
+        // k:v 구조일때 foreach
+        data = '';
+        emp.forEach(function(item, index){
+        //    data += index + ':' + item.name + ' <a href="' + item.url + '">' +item.url+ '</a> <br>';
+        //
+            data += '<a href=' + item.url + '>' + item.name + '</a> &nbsp;';});
+        document.getElementById("display").innerHTML= data;
+    }    
+    
+
+</script>
+</head>
+<body>
+    
+    <h3>15</h3>
+    <div id="display"></div> <p></p>
+    <button onclick="myemp()">배열emp</button>
+</body>
+</html>

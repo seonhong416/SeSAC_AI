@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+
+<script>
+    function myNullCheck(){
+        vcode = document.getElementById("code").value;
+        vemail = document.getElementById("email").value;
+        if(vcode==null || vcode==""){
+            //alert('code를 입력해주세요.');
+            document.getElementById("code_ch").innerHTML="<font style='color:red'><small>*code를 입력해주세요.</small></font>"
+            return false;
+        }else{
+            document.getElementById("code_ch").innerHTML=""
+        }
+
+        if(vemail==null || vemail==""){
+            //alert('email을 입력해주세요.')
+            document.getElementById("email_ch").innerHTML="<font style='color:red'><small>*email을 입력해주세요.</small></font>"
+            return false;
+        }else{
+            mail_re =/^([a-zA-z0-9]{3,5})@([a-z]{2,5})\.([a-z]{2,3})$/;
+            if(mail_re.test(vemail) == false){
+                document.getElementById("email_ch").innerHTML="<font style='color:red'><small>*abc@abc.com</small></font>"
+            }
+            else{
+                document.getElementById("email_ch").innerHTML=""
+            }
+        }
+    }//myNullCheck end
+
+    function myEmailCheck(){
+        vemail = document.getElementById("email").value;
+        if(vemail==null || vemail==""){
+            //alert('email을 입력해주세요.')
+            document.getElementById("email_ch").innerHTML="<font style='color:red'><small>*email을 입력해주세요.</small></font>"
+            return false;
+        }else{
+            mail_re =/^([a-zA-z0-9]{3,5})@([a-z]{2,5})\.([a-z]{2,3})$/;
+            if(mail_re.test(vemail) == false){
+                document.getElementById("email_ch").innerHTML="<font style='color:red'><small>*abc@abc.com</small></font>"
+            }
+            else{
+                document.getElementById("email_ch").innerHTML=""
+            }
+        }
+    }//myEmailCheck end
+</script>
+</head>
+<body>
+    02testemail.html <br>
+    <form action="">
+        코드: <input type="text" name="code" id="code" value="78">
+        <span id="code_ch"></span><br>
+        메일: <input type="text" name="email" id="email" onblur="myEmailCheck()" value="abc@aws.com">
+        <span id="email_ch"></span><br>
+        <input type="button" name="" id="" value="확인버튼" onclick="myNullCheck()">
+        <input type="reset" name="" id="" value="입력취소">
+    </form>
+</body>
+</html>

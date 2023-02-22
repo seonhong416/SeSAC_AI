@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+
+<style>
+    #mycanvas{
+        border: 3px solid rgb(240, 235, 235);
+    }
+    a{font-size:20pt; text-decoration:none;}
+    a:hover{font-size:32pt; color:green;}
+</style>
+
+</head>
+
+
+
+<body>
+    <h2>08testcanvas.html</h2>
+    <h1><a href="" download="my_sesac.png">이미지다운로드</a></h1>
+    <canvas id="mycanvas" width="500" height="500"></canvas>
+
+    <script>
+        canvas = document.getElementById("mycanvas");
+        ctx = canvas.getContext("2d");
+
+        drawing = false;
+
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        // 버튼,이미지 onclick 키보드 입력후 onkeyup 초점이동 onblur 이미지 ondrag / ondrop
+
+        my = new Image();
+        my.src = "./images/corgi.jpg";
+        my.addEventListener("load", function(){
+            ctx.drawImage(my, 5, 5, 500, 500); //좌표 좌표 가로 높이
+        })
+
+        canvas.addEventListener('mousedown',(e) => {
+            drawing = true;
+            ctx.moveTo(e.offsetX, e.offsetY)
+        });
+
+        canvas.addEventListener('mousemove', (e) =>{
+            if(drawing == true){
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        });
+        
+        canvas.addEventListener('mouseup', (e) =>{
+            drawing = false;
+        });
+
+        document.querySelector('a').addEventListener('click', function(event){
+            event.target.href = canvas.toDataURL();
+        })
+    </script>
+
+    <div id="display"> </div>
+    
+</body>
+</html>

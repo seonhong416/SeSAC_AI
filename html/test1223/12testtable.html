@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+    <style>
+      *{font-size: 20pt;}
+      body{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+        background-image: url(https://source.unsplash.com/random/1920x1080?munchkin);
+        /*background-image: url(../강사이미지image/bc.gif);*/
+      }
+      table, th, td{
+        border: 1px dotted blue;
+      }
+
+      th,td{
+        padding: 20px;
+      }
+    </style>
+</head>
+<body>
+    <h2>여러개의 컬럼(column) 합치기</h2>
+    <table  width="900" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th colspan="3">Tel</th>
+            <th colspan="2">Email</th>
+        </tr>
+        <tr>
+            <td>Bill Gates</td>
+            <td>5 77 854</td>
+            <td>6 77 855</td>
+            <td>7 77 855</td>
+            <td>kim@a.com</td>
+            <td>lee@b.com</td>
+        </tr>
+    </table>
+    
+    <p></p> <br>
+    <h2>여러개의 로우(row) 합치기</h2>
+    <table  width="900" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <td>Bill Gates 김합격</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Tel1</th>
+            <td>555 77 854</td>
+        </tr>
+        <tr>
+            <td>555 77 855</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Email</th>
+            <td>a@a.com</td>
+        </tr>
+        <tr>
+            <td>b@b.com</td>
+        </tr>
+    </table>
+
+</body>
+</html>

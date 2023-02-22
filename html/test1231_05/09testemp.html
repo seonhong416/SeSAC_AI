@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+
+<script>
+    function myemp(){
+        emp = [
+            {'name': '다음', 'price' : 340},
+            {'name': '구글', 'price' : 120},
+            {'name': '쿠팡', 'price' : 140}
+        ];
+        data = '';
+
+        for(k=0; k<emp.length; k++){
+            data += emp[k].name + ' ' + emp[k].price + '<br>';
+        }
+
+        
+        document.getElementById("display").innerHTML= data;
+    }    
+    
+
+</script>
+</head>
+<body>
+    <h3>09test배열문서 emp</h3>
+    <div id="display"></div>
+    <button onclick="myemp()">배열emp</button>
+</body>
+</html>

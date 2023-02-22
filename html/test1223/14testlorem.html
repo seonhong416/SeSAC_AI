@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14</title>
+    <style>
+        *{font-size: 14pt;}
+        p{border:2px red solid;}
+        p::first-letter{font-size : 1.5em; text-transform: capitalize;} /* 첫글자 대문자 */
+        p::first-line{color: red;}
+
+        h2{color : blue;}
+        h2::before{
+            content: "HTML5 !!! 금요일";
+            color : greenyellow;
+        }
+        /* content로 들어간 것들은 선택이 안됨(드래그) */
+        h2::after{
+            content: "CSS3 !!! 토요일";
+            color : orangered;
+        }
+
+        ::selection{
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h2>This is a heading</h2>
+    <p>
+        it is a long established fact that a reader will be distracted <br>
+        by the readable content of a page when looking at its layout.
+
+    </p>
+</body>
+</html>

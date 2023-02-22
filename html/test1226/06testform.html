@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+    <style>
+        #code_ch, #title_ch{
+            margin-left : 40px;
+            font-size : small;
+        }
+
+        #button_ch{
+            margin-left : 40px;
+        }
+        
+    </style>
+
+    <script>
+        function start(){
+            document.myform.code.focus();
+        }
+    </script>
+
+
+</head>
+
+<!-- onload="javascript:start();" -->
+
+<body onload="start();">
+    <div style="width : 700px; margin-left:50px; border:1px solid burlywood">
+        <form name="myform" action="" method="get">
+            <label for="code">코드</label> <!-- label 선택시에 id가 code로 간다 (for는 id로 연결 name으로는 연결안됨)-->
+                <input type="text" name="code" id="code">
+                <input type="button" value="중복체크"> <br>
+                <span id="code_ch"><font color="red">*필수입력사항</font></span> <br>
+
+            <label for="">제목</label> <!-- label 선택해도 아무일도 일어나지않음-->
+                <input type="text" name="title" id="title"> <br>
+                <span id="title_ch"><font color="red">*필수입력사항</font></span> <br>
+            
+            <span id="button_ch"></span>
+                <input type="button" value="등록확인"> &nbsp;&nbsp;
+                <input type="reset" value="입력취소">
+                
+        </form>
+
+    </div>
+</body>
+</html>

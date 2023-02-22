@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16</title>
+    <style>
+
+    </style>
+
+<script>
+    function myNullCheck(){
+        vcode = document.myform.code.value;
+        vtitle = document.myform.title.value;
+        vemail = document.myform.email.value;
+        if(vcode==null || vcode==""){
+            document.getElementById("code_ch").innerHTML="<font style='font-size:8pt; color:red'>*코드를 입력해주세요.</font>";
+            document.myform.code.focus();
+            return false; // 함수탈출
+        }else{
+            document.myform.title.focus();
+            document.getElementById("code_ch").innerHTML="";
+        }
+
+        if(vtitle==null || vtitle ==""){
+            document.getElementById("title_ch").innerHTML="<font style='font-size:8pt; color:red'>*제목을 입력해주세요.</font>";
+            document.myform.title.focus();
+            return false; // 함수탈출
+        }else{
+            document.myform.email.focus();
+            document.getElementById("title_ch").innerHTML="";
+        }
+        
+        if(vemail==null || vemail ==""){
+            document.getElementById("email_ch").innerHTML="<font style='font-size:8pt; color:red'>*메일을 입력해주세요.</font>";
+            document.myform.email.focus();
+            return false; // 함수탈출
+        }else{
+            mail_re =/^([a-zA-z0-9]{3,5})@([a-zA-Z]{2,5})\.([a-zA-z]{2,3})$/; //고전
+            if(mail_re.test(vemail) == false){
+                document.getElementById("email_ch").innerHTML="<font style='font-size:8pt; color:red'>샘플)abc@naver.com</font>";
+                //document.myform.email.value = "";
+                document.myform.email.focus();
+                return false;
+            }else {document.getElementById("email_ch").innerHTML="";}
+        }
+        msg = '코드:' + vcode + ' 제목:' + vtitle + ' 메일:' + vemail;
+        msg += '<img scr=../강사이미지image/bar.gif width=250>';
+        document.getElementById('display').innerHTML='<h4>' + msg +'</h4>'
+
+    }//end
+
+    function myPayCheck(){
+        
+    }//end
+
+    function myEmailCheck(){
+        vemail = document.myform.email.value;
+        if(vemail==null || vemail ==""){
+            document.getElementById("email_ch").innerHTML="<font style='font-size:8pt; color:red'>*메일을 입력해주세요.</font>";
+            document.myform.email.focus();
+            return false; // 함수탈출
+        }else{
+            mail_re =/^([a-zA-z0-9]{3,5})@([a-zA-Z]{2,5})\.([a-zA-z]{2,3})$/; //고전
+            if(mail_re.test(vemail) == false){
+                document.getElementById("email_ch").innerHTML="<font style='font-size:8pt; color:red'>샘플)abc@naver.com</font>";
+                // document.myform.email.value = "";
+                document.myform.email.focus();
+                return false;
+            }else {document.getElementById("email_ch").innerHTML="";}
+        }
+    }//end
+</script>
+</head>
+<body>
+    <h2>16form 메일체크-1228</h2>
+
+    <form name="myform" action="" method = 'get'>
+        코드 : <input type="text" name="code" value = "7800"> 
+        <span id="code_ch"></span> <br>
+        제목 : <input type="text" name="title" value = "blue">
+        <span id="title_ch"></span> <br>
+        메일 : <input type="text" name="email" onblur="myEmailCheck()"> 
+        <span id="email_ch"></span> <br>
+
+        <input type="button" onclick="myNullCheck();" value="확인버튼" >
+        <input type="reset" value="입력취소">
+        
+
+
+    </form>
+    <div id="display"></div>
+</body>
+</html>

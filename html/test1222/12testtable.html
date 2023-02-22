@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+    <style>
+        *{
+            font-size:20pt;
+        }
+
+        table, th, td{
+            border : 1px solid blue;
+        }
+
+        th, td{
+            padding : 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2> 여러개의 컬럼(culumn) 합치기</h2>
+    <table  width = "990" cellspacing = "0">
+        <tr bgcolor = 'yellow'>
+            <th>Name</th>
+            <th colspan = "3">Tel</th>
+            <th colspan = "2">Email</th>
+        </tr>
+
+        <tr>
+            <td>Bill Gates</td>
+            <td>500 77 854</td>
+            <td>600 77 855</td>
+            <td>700 77 855</td>
+            <td>kim@a.com</td>
+            <td>lee@b.com</td>
+        </tr>
+    
+    </table>
+
+    <p></p>
+    <hr>
+
+    <table  width = "500" cellspacing = "0">
+        <tr>
+            <th bgcolor = "yellow">Name</th>
+            <td>Bill Gates</td>
+        </tr>
+
+        <tr>
+            <th rowspan="2" bgcolor = "yellow">Tel1</th>
+            <td>500 77 854</td>
+        </tr>
+
+        <tr>
+            <td>555 77 854</td>
+        </tr>
+
+        <tr>
+            <th rowspan="2" bgcolor = "yellow">Email</th>
+            <td>a@a.com</td>
+        </tr>
+
+        <tr>
+            <td>b@b.com</td>
+        </tr>
+
+    </table>
+
+    <p></p>
+    <hr>
+
+    <table  cellspacing = "0">
+
+        <tr>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>생년월일</th>
+        </tr>
+
+        <tr>
+            <th>김선홍</th>
+            <td>010 3740 1632</td>
+            <td>96.4.16</td>
+        </tr>
+
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11</title>
+
+<script>
+    function mydate(){
+        fruits = ['coffee', '동네커피', '오렌지귤', '딸기', '샌드위치']
+        
+        emp = [
+            {'name': '다음', 'price' : 340},
+            {'name': '구글', 'price' : 120},
+            {'name': '쿠팡', 'price' : 140}
+        ];
+
+        days = new Array('일','월','화','수','목','금','토');
+        date = new Date();
+
+        
+
+        document.write('오늘은 '
+            + date.getFullYear() + '년 '
+            + (date.getMonth()+1) + '월 ' // 월은 0월부터 시작
+            + date.getDate() + '일 '
+            + days[date.getDay()] + '요일입니다<p>'
+
+        )
+
+        document.write('지금은 '
+            + date.getHours() + '시 '
+            + date.getMinutes() + '분 ' 
+            + date.getUTCSeconds() + '초입니다.<p>'
+            
+        )
+
+        
+    }    
+    
+
+</script>
+</head>
+<body>
+    <h3>11testdate-날짜</h3>
+    <div id="display"></div>
+    <button onclick="mydate()">날짜</button>
+</body>
+</html>

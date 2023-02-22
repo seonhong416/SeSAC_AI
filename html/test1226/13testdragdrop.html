@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+    <style>
+        /*img{float:right;}*/
+        *{font-size: 16pt;}
+        
+        .allfood{
+            width:900px;
+            height:100px;
+            text-align:center;
+            border:1px solid black;
+            padding:10px;
+            margin:20px;  
+        }
+
+        .food{
+            width:270px; 
+            height:250px; 
+            text-align: center; border:1px solid black;
+            padding: 5px;
+            margin: 20px;
+            /*display:inline-block;*/
+            float: left;
+        }
+
+        img{
+            width:80px;
+            height: 70px;
+            padding:5px;
+        }
+
+        #myh2{
+            margin-left: 35px;
+        }
+
+        #display{
+            margin-left:35px;
+        }
+    </style>
+
+
+    <script>
+        function mydrag(food){
+            food.dataTransfer.setData('Text', food.target.id);
+        }//end
+
+        function mydrop(food){
+            id = food.dataTransfer.getData('Text');
+            console.log('넘어온 id = ', id); //필요에 따라서 확인 코드디자인모드(F12) 콘솔console탭에서 적용
+            // 비권장 document.write(id);
+            // 권장 document.getElementById('display').innerHTML='<h1>'+id+'</h1>';
+            document.getElementById('display').innerText=id;
+            food.target.appendChild(document.getElementById(id));
+        }//end
+
+    </script>
+</head>
+<body>
+    <p>
+        <h2 id="myh2"> 
+            display, float, drag&drop 적용
+        </h2>
+    </p>
+    
+    <img src="../강사이미지image/a1.png" alt="" style="margin-left:15px; margin-right:15px;">
+    <br>
+
+    <div class="allfood" ondrop="mydrop(event)" ondragover="return false">
+        <img src="../강사이미지image/1.jpg" alt="1" id="kor1" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/2.jpg" alt="2" id="kor2" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/3.jpg" alt="3" id="kor3" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/4.jpg" alt="4" id="kor4" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/5.jpg" alt="5" id="kor5" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/6.jpg" alt="6" id="kor6" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/7.jpg" alt="7" id="kor7" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/8.jpg" alt="8" id="kor8" ondragstart="mydrag(event)">
+        <img src="../강사이미지image/9.jpg" alt="9" id="kor9" ondragstart="mydrag(event)">
+
+    </div>
+
+    <div id="display"></div>
+    <div class="food" ondrop="mydrop(event)" ondragover="return false"> <h2>한식</h2> </div>
+    <div class="food" ondrop="mydrop(event)" ondragover="return false"> <h2>분식</h2> </div>
+    <div class="food" ondrop="mydrop(event)" ondragover="return false"> <h2>중식</h2> </div>
+</html>

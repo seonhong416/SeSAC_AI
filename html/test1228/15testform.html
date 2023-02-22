@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15</title>
+    <style>
+
+    </style>
+
+<script>
+    function myNullCheck(){
+        vcode = document.myform.code.value;
+        vtitle = document.myform.title.value;
+        vemail = document.myform.email.value;
+        if(vcode==null || vcode==""){
+            alert("코드데이터가 공백입니다\n정확한 데이터를 입력하세요");
+            document.myform.code.focus();
+            return false; // 함수탈출
+        }else{
+            document.myform.title.focus();
+        }
+
+        if(vtitle==null || vtitle ==""){
+            alert("코드데이터가 공백입니다\n정확한 데이터를 입력하세요");
+            document.myform.title.focus();
+            return false; // 함수탈출
+        }else{
+            document.myform.email.focus();
+        }
+        
+        if(vemail==null || vemail ==""){
+            alert("코드데이터가 공백입니다\n정확한 데이터를 입력하세요");
+            document.myform.email.focus();
+            return false; // 함수탈출
+        }
+        
+
+    }//end
+
+    function myPayCheck(){
+        
+    }//end
+
+    function myEmailCheck(){
+        vemail = document.myform.email.value;
+        if(vemail==null || vemail ==""){
+            alert("코드데이터가 공백입니다\n정확한 데이터를 입력하세요");
+            document.myform.email.focus();
+            return false; // 함수탈출
+        }else{
+            mail_re =/^([a-zA-z0-9]{3,5})@([a-zA-Z]{2,5})\.([a-zA-Z]{2,3})$/; //고전
+            if(mail_re.test(vemail) == false){
+                alert('메일주소를 다시 확인하세요.');
+                //document.myform.email.value = "";
+                // document.myform.email.focus(); 이거때문에 무한루프가 돌았음.
+                
+            }
+        }
+    }//end
+</script>
+</head>
+<body>
+    <h2>15form 화면연습</h2>
+
+    <form name="myform" action="" method = 'get'>
+        코드 : <input type="text" name="code" value = "7800"> <br>
+        제목 : <input type="text" name="title" value = "blue"> <br>
+        메일 : <input type="text" name="email" onblur="myEmailCheck()"> <br>
+
+        <input type="button" onclick="myNullCheck();" value="확인버튼" >
+        <input type="reset" value="입력취소">
+        
+
+
+    </form>
+</body>
+</html>

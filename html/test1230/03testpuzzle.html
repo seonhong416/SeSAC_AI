@@ -1,0 +1,109 @@
+
+<html>
+<head>
+    
+    <title>06</title>
+
+<script>
+    order = new Array();
+    temp = 0;
+    blink = 0;
+
+    cat = new Array(
+        './img/1.gif', './img/2.gif', './img/3.gif', './img/4.gif',
+        './img/5.gif', './img/6.gif', './img/7.gif', './img/8.gif',
+        './img/9.gif', './img/10.gif', './img/11.gif', './img/12.gif',
+        './img/13.gif', './img/14.gif', './img/15.gif', './img/blink.gif'
+    )
+
+    
+
+    function start(){
+        
+        for(a=0; a<16; a++){
+            order[a] = Math.round(Math.random()*15);
+            // 중복체크
+            for(b=0; b<a; b++){
+                if(order[a] == order[b]){
+                    a--;    
+                }
+            }// b end
+            console.log('order['+a+']='+order[a]);
+            
+        } // a end
+        console.log('\n');
+          
+        mix()
+    }//mypuzzle end
+
+
+    function mix(){
+        for(i=0; i<16; i++){
+            document.images[i].src=cat[order[i]];
+            console.log('cat[order['+i+']] : '+ cat[order[i]]);
+            if(order[i]==15){blink = i;}
+        }
+    }//mix end
+
+    function move(k){
+        gap = Math.abs(blink-k);
+        if(gap==1 || gap==4){
+            temp = order[k];
+            order[k] = order[blink]
+            order[blink] = temp;
+            mix();
+        }
+        checkWin();
+    }//move end
+
+    function checkWin(){
+        
+        for(k=0; k<16; k++){
+            if(k != order[k]){
+                return;
+            }
+        }
+        document.images[15].src = './img/16.gif';
+        alert('퍼즐 완성 ! ')    
+            
+            
+            
+            
+        
+        
+        
+    }//checkWin end
+
+</script>
+
+</head>
+
+
+
+<body>
+    <h2 style="font-size:20pt;color:green;">03퍼즐난수 1230 금요일</h2>
+    <form action="">
+        <input type="button" onclick="start()" value="퍼 즐 시 작" style="font-size:24pt;"> <p></p>
+    </form>
+    <div id="display"></div>
+    
+<script>
+    imagesource = new Array(
+        './img/1.gif', './img/2.gif', './img/3.gif', './img/4.gif',
+        './img/5.gif', './img/6.gif', './img/7.gif', './img/8.gif',
+        './img/9.gif', './img/10.gif', './img/11.gif', './img/12.gif',
+        './img/13.gif', './img/14.gif', './img/15.gif', './img/16.gif'
+    )
+
+    for(k=0; k<imagesource.length; k++){
+        document.write("<img src=" + imagesource[k] + " border=1 onclick=move("+k+")>");
+        if((k+1)%4==0){
+            document.write('<br>')
+        }
+    }
+
+    document.write
+</script>
+    
+</body>
+</html>

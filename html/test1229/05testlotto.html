@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+
+<script>
+    function mymath(){
+        lotto = new Array();
+        data = '';
+        for(k=0; k<5; k++){
+            lotto[k] = Math.floor(Math.random()*5+1);
+            // 중복체크
+            for(i=0; i<k; i++){
+                if(lotto[k] == lotto[i]){
+                    k--;    
+                }
+            }
+            
+        }
+
+        for(k=0; k<5; k++){
+            // 선택소트 select
+            
+            data += lotto[k] + ' ' ;
+            
+        }
+        document.getElementById('display').innerHTML='<h2>' + data +  '</h2>'
+        
+    }
+
+</script>
+
+</head>
+
+
+
+<body>
+    <h2>로또 testrandom 난수</h2>
+
+    <input type="button" onclick="mymath()" value="내용확인"> <p></p>
+    <div id="display"></div>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+
+<script>
+    function mystar(){
+        for(k=1;k<6; k++){ //k++단항연산
+            for(j=1;j<=k;j++){
+                document.write('★');
+            }
+            document.write('<br>');
+            
+        }
+        
+    }
+    
+</script>
+</head>
+<body>
+    <h2>07testfor.html 자바스크립트연습</h2>
+    <div id="display"></div>
+    <input type="button" value="데이터확인" onclick="mystar();">
+</body>
+</html>

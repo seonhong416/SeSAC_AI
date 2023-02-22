@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+
+<script>
+    function mynumber(){
+        su=0;
+        
+        while(true){
+            su=su+1;
+            document.write(su, '&nbsp;')
+            if(su%5==0){document.write('<br>');}
+            if(su==30){break;}
+        }
+    
+    document.write('<br>홀짝구별<br>')
+    data = 6;
+    result = '';
+    if(data%2==0){result = '짝수입니다';}
+    else{result='홀수입니다.';}
+    document.write(data+result);
+    }
+
+</script>
+</head>
+<body>
+    <h2>08testwhile.html 자바스크립트연습</h2>
+    <div id="display"></div>
+    <input type="button" value="데이터확인" onclick="mynumber();">
+</body>
+</html>

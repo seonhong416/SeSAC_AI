@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+    <style>
+        #my1{
+            margin-left:20px;
+        }
+        #my2{
+            margin-left:4px;
+        }
+        #my3{
+            margin-left:21px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <select name="" id="">
+                <option value="">피자를 선택하세요</option>
+                <option value="">불고기</option>
+                <option value="">고구마</option>
+                <option value="">포테이토</option>
+            </select>
+            <select name="" id="">
+                <option value="">피자를 선택하세요</option>
+                <option value="">불고기</option>
+                <option value="">고구마</option>
+                <option value="">포테이토</option>
+            </select>
+        </div>
+        <div style="width:500px">
+            <fieldset >
+                <legend><b>필수항목입력</b></legend>
+                <div>
+                    <label for=""><b>고객명</b></label>
+                    <input type="text" id="my1" placeholder="김피자">
+                </div>
+                <div>
+                    <label for=""><b>전화번호</b></label>
+                    <input type="tel" name="" id="my2" placeholder="010-1234-5678">
+                </div>
+                <div>
+                    <label for=""><b>E-mail</b></label>
+                    <input type="email" name="" id="my3" placeholder="pizza@pizza.com">
+                </div>
+            </fieldset>
+        </div> <br>
+
+
+        <div style="width:500px">
+            <fieldset>
+                <legend><b>피자 사이즈</b></legend>
+                <div>
+                    <input type="radio" name="1" id="1"> <b>Small</b> <br>
+                    <input type="radio" name="1" id="2"> <b>Medium</b> <br>
+                    <input type="radio" name="1" id="3"> <b>Large</b> <br>
+                </div>
+            </fieldset><br>
+        </div>
+
+        <div style="width:500px">
+            <fieldset>
+                <legend><b>토핑 선택</b></legend>
+                <div>
+                    <input type="checkbox" name="" id=""><b>베이컨</b> <br>
+                    <input type="checkbox" name="" id=""><b>치즈</b> <br>
+                    <input type="checkbox" name="" id=""><b>양파</b> <br> 
+                    <input type="checkbox" name="" id=""><b>버섯</b> <br> 
+                </div>
+            </fieldset> 
+        </div><br>
+        <div>
+            <label for=""><b>희망배송시간</b></label> <br>
+            
+            <input type="time" name="" id="" min="12:00" max="22:30" placeholder="12:00~22:30">
+            <span style="color:red"> <small>*12:00~22:30</small> </span> <br>
+        
+            <label for=""><b>배송시요청사항</b></label><br>
+            <textarea name="" id="" cols="30" rows="4" style="resize:none;" placeholder="배송시 요청사항을 입력해주세요."></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="피자주문하기">
+        </div>
+
+    </form>
+</body>
+</html>

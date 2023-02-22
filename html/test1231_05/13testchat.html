@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+    // ES6 = European computer Manufacture Association 2015년 표준
+    // jQuery(document).ready(function(){코드구현}); //정석
+    // jQuery(function(){코드구현}); //보통
+    // $(function(){코드구현}); //초간단축약
+    $(function(){
+        var gnickName = nickRandomString(5);
+        console.log('자동닉네임');
+        my = document.getElementById("nickname");
+        my.value = gnickName;
+
+        temp = '';
+        cnt = 0;
+        $('#send-button').click(function(){
+            send()
+        });
+        $('#chatting-input').keydown(function(key){
+            if (key.keyCode == 13){
+                send();
+            }else if(key.keyCode==27){
+                alert('프로그램 종료합니다.')
+            }
+            
+        })
+        function send(){
+            //if(cnt==15){
+            //    $('#chatting-list').val('');
+            //    cnt = 0;
+            //    temp = '';
+            //}
+
+           
+            msg = temp  + $('#nickname').val() + ' : ' + $('#chatting-input').val() + '<br>';
+            $('#chatting-list').html(msg);
+            $('#chatting-input').val('');
+
+            temp = msg;
+            //cnt += 1
+        }// send end    
+
+        function nickRandomString(num){
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            result = '';
+            const size = characters.length
+            for(i=0; i< num; i++){
+                result += characters.charAt(Math.floor(Math.random()*size));
+            }
+            return result;
+        }// nickRandomString end
+    }); // jQuery end
+
+    
+</script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <h2 style="color: blueviolet;">13testchat.html</h2> <p></p>
+        닉네임 : <input type="text" name="nickname" id="nickname" value="kim"> <br>
+        메시지 : <input type="text" name="chatting-input" id="chatting-input">  
+                <input type="button" name="send-button" id="send-button" value="전송">
+
+    
+
+
+
+    
+
+        <div id="chatting-list" style="overflow:scroll; font-size: 1.53em; padding:5px;">
+
+        </div>
+    </div>
+</body>
+</html>

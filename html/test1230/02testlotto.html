@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+
+<script>
+    function mymath(){
+        lotto = new Array();
+        data = '';
+        for(k=0; k<6; k++){
+            lotto[k] = Math.floor(Math.random()*45+1);
+            // 중복체크
+            for(i=0; i<k; i++){
+                if(lotto[k] == lotto[i]){
+                    k--;    
+                }
+            }
+            
+        }
+
+        // 선택소트 select
+        temp = 0;
+        for(x=0;x<5;x++){
+            for(y=x+1; y<6; y++){
+                if(lotto[x]>lotto[y]){
+                    temp = lotto[x];
+                    lotto[x]=lotto[y];
+                    lotto[y] = temp;
+                }
+            }
+
+        }
+
+
+        for(k=0; k<6; k++){
+            
+            
+            data += lotto[k] + ' ' ;
+            
+        }
+        document.getElementById('display').innerHTML='<h2>' + data +  '</h2>'
+        
+    }
+
+</script>
+
+</head>
+
+
+
+<body>
+    <h2>로또 testrandom 난수 1230 금요일 </h2>
+
+    <input type="button" onclick="mymath()" value="내용확인"> <p></p>
+    <div id="display"></div>
+    
+</body>
+</html>

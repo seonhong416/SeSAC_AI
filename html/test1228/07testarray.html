@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+
+<script>
+    function myfruit(){
+        fruits = ['키위', '한라봉', '홍시', '자두', '복숭아'];
+        data = '';
+        for(k=0;k<fruits.length;k++){
+            //document.write(fruits[k], '<br>');
+            data += fruits[k] + '<br>'
+        }
+
+        for(j in fruits){data += fruits[j] + '<br>'}
+        document.getElementById("display").innerHTML= data;
+    }    
+    
+
+</script>
+</head>
+<body>
+    <h3>07test배열문서 for 반복문</h3>
+    <div id="display"></div>
+    <button onclick="myfruit()">배열과일</button>
+</body>
+</html>

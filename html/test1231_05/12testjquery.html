@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+    // ES6 = European computer Manufacture Association 2015년 표준
+    // jQuery(document).ready(function(){코드구현}); //정석
+    // jQuery(function(){코드구현}); //보통
+    // $(function(){코드구현}); //초간단축약
+    jQuery(document).ready(function(){
+        $('#btn1').click(function(){
+            $('#btn1').text('button1 Django Flask');
+            $('#btn1').css({'font-size':'24pt','font-weight':'bold'});
+            $('#btn1').css('background','purple');
+            $('#btn1').css('height', '120px');
+            $('#btn1').css('border', '3px solid yellow');
+            $('#btn1').css('color','white');
+        });
+
+        jQuery('#btn2').click(function(){
+            $('#btn2').text('button2 Spring MVC');
+            $(this).css({
+                'font-size':'24pt',
+                'font-weight':'bold',
+                'background':'cyan',
+                'height':'120px',
+                'border':'3px solid blue',
+                'color' : "#d39e9e" 
+            });
+        });
+
+        $('#btn3').on('click',function(){
+            $(this).text('button3 ');
+            $(this).css({
+                'font-size':'24pt',
+                'font-weight':'bold',
+                'background':'pink',
+                'height':'120px',
+                'border':'3px solid red',
+                'color' : 'black'
+            });
+        });
+
+        $('#btn4').click(function(){
+            emp = {
+                'name':'고길동',
+                'age':'37',
+                'tel':'010-1234-5678',
+                'juso':'쌍문동'
+            };
+            msg = '';
+            msg += '이름 : ' + emp.name + '<br>' + '나이 : ' + emp.age + '<br>'
+                +'tel : ' + emp.tel + '<br>' + 'juso : ' + emp.juso;
+            $('#display').html(msg)
+        });
+    }); // jQuery().ready() end
+</script>
+
+</head>
+
+
+<body>
+    <h2>12testjquery.html</h2> <p></p>
+
+    <input type="button" id="btn1" value="버튼1">
+    <input type="button" id="btn2" value="버튼2">
+    <input type="button" id="btn3" value="버튼3">
+    <input type="button" id="btn4" value="버튼4">
+
+
+
+
+
+    <div id="display"></div>
+</body>
+</html>

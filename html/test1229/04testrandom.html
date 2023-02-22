@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+
+<script>
+    function mymath(){
+        document.write('난수 = ', Math.random(),'<br>');      //0.00000001~0.99999999
+        document.write('난수 = ', Math.random()*10,'<br>');  
+        document.write('난수 = ', Math.random()*10+1,'<br>');  
+        document.write('난수 = ', Math.floor(Math.random()*10+1), '<br>');
+        document.write('난수 = ', Math.round(Math.random()*10+1), '<br>');
+    }
+
+</script>
+
+</head>
+
+
+
+<body>
+    <h2>testrandom 난수</h2>
+
+    <input type="button" onclick="mymath()" value="내용확인"> <p></p>
+    <div id="display"></div>
+    
+</body>
+</html>

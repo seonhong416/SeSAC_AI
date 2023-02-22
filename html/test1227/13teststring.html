@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+
+<script>
+    function myjumin(){
+        var a = new String('skyblue'); //object유형
+        var b = 'skyblue' ; //기본형 string
+
+        document.write(typeof(a));
+        document.write('<br>');
+        document.write(typeof(b));
+        document.write('<br>');
+
+        var c = 'ajax-react-spring-python';
+        var data = c.split('-');
+        for(k=0; k<data.length; k++){
+            document.write(data[k],' ');
+        }
+        document.write('<br>')
+
+        var d = 'bc LG  SeSAC' ;
+        document.write(d.toLowerCase(), '<br>');
+        document.write(d.toUpperCase(), '<br>');
+
+        document.write('<br>')
+        //LG단어 snow 변경 replace함수
+        document.write(d.replace('LG', 'snow'))
+
+        var e = 'skyblue' ; // 총자릿수 출력
+        document.write('문자길이 = ', e.length)
+    }
+</script>
+</head>
+<body>
+    <h2>13teststring.html</h2>
+    <div id="display"></div>
+    <input type="button" value="데이터확인" onclick="myjumin();">
+</body>
+</html>

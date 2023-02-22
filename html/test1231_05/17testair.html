@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17</title>
+<style>
+    * { margin: 0; padding: 0; }
+    ul, ol, li { list-style: none; }
+    a { color: inherit; text-decoration: none; } 
+    .searchForm {  display: flex; justify-content: center; width: 800px; margin: 100px auto 50px; }
+    .searchForm #search { height: 60px; border: 1px solid #ccc; border-radius: 5px; padding: 0 15px;  flex-grow: 1; }
+    .searchForm .btn { flex-grow: 0; height: 60px; width: 100px; background: none; border: none; background-color: #111; color: #fff; border-radius: 5px; margin-left: 10px; }
+    .resultList { width: 1200px; margin: 100px auto;  display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+    .resultList li { flex-basis: 200px; padding: 50px 20px;  box-sizing: border-box; position: relative; border: 1px solid #ccc; border-radius: 10px; margin: 5px; text-align: center; }
+    .resultList li .icon { font-size: 48px; }
+
+</style>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+</head>
+<body>
+    
+    <h3>17testair - jQuery 접근</h3>
+    <div class="searchForm">
+        <input type="text" name="search" id="search" placeholder="미세먼지를 알고 싶은 도시명 입력" value="제주">
+        <button class="btn">검색</button>
+    </div>
+    <ul class="resultList">
+
+    </ul>
+<script>
+    $(function(){
+        const resultList = $('.resultList');
+        const btn = $(".btn");
+        const sido = $('#search');
+    
+        btn.on('click', function(){
+            send();
+        });
+
+        sido.on('keyup', function(key){
+            if(key.keyCode==13){
+                send();
+            };
+        });
+
+        function send(){
+            const sidoVal = sido.val();
+            resultList.html(''); // ul태그 초기화
+            $.ajax({
+                url:`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=키를입력하세요.&numOfRows=100&returnType=json&sidoName=${sidoVal}`,
+            }).done(function(data){
+                const result = data.response.body.items; //emp 역할
+                tempHtml = '';
+                pm10Emoji = '';
+                console.log(result)
+                $.each(result, function(idx, item){
+                    if(item.pm10Value == '-'||item.pm10Value ==''||item.pm10Value == null||item.pm10Value ==undefined||item.pm10Value ==NaN||item.pm10Value =='null'||item.pm10Value ===null||item.pm10Value ==='null'){
+                        pm10Emoji='🤔';    
+                    }else if(item.pm10Value<=15){
+                        pm10Emoji = '😄';
+                    }else if(item.pm10Value>15 && item.pm10Value<=35){
+                        pm10Emoji='😐';
+                    }else if(item.pm10Value>35 && item.pm10Value<=75){
+                        pm10Emoji='☹️';
+                    }else{
+                        pm10Emoji='😭';
+                    }
+
+                    tempHtml += `
+                        <li>
+                            <h2> ${item.stationName} </h2>
+                                <dl>
+                                    <dt> 미세먼지농도 </dt>
+                                    <dd> ${item.pm10Value} </dd>
+                                </dl>
+                                <p class="icon"> ${pm10Emoji} </p>
+                        </li>
+                    `;
+                }); // each end
+                resultList.append(tempHtml);
+            }); // ajax end
+        }// send end
+    }); // jQuery end
+</script>    
+
+
+</body>
+</html>

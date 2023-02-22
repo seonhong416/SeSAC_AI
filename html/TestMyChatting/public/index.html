@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeSAC Talk</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+    <style>
+       
+        
+    </style>
+
+    <script src="/socket.io/socket.io.js">
+
+    </script>
+
+    <script>
+        var socket ; 
+        
+        
+
+        $(function(){
+            socket = io();
+            messageBox = document.querySelector("#msg")
+            console.log(socket);
+
+
+            socket.on('sendBroad', function(data) {
+                messageBox.innerHTML += "<br>"+data['sender'] +" : "+ data['message'];
+            });
+
+            //socket.on('sendBroad', function(data){
+            //    $('#msg').append(data + "<br>");
+            //    $('#msg').css('color', 'blue');
+            //});
+
+            $("#nick_btn").click(function(){
+                var gnickName = nickRandomString();
+                my = document.getElementById("nick");
+                my.value = gnickName;
+            });
+
+            $('#btn').click(function(){
+                send();
+            });
+
+            $('#txt').on("keyup", function(key){
+                if(key.keyCode==13){
+                    send();
+                }
+            })
+            
+            //버튼이벤트, 입력란이벤트, function send(){socket.emit('hello', 내 메세지)}
+            function send(data){
+                txt = $('#txt').val();
+                nick = $('#nick').val();
+                
+                console.log('data:' + txt);
+                socket.emit('hello', {sender:nick, message:txt});
+                $('#txt').val('');
+                $('#txt').focus();
+
+                
+            }// send end
+
+            $('#nick').on("keyup", function(key){
+                if(key.keyCode==13){
+                    $('#txt').focus();
+                }
+            });
+
+            function nickRandomString(){
+                const characters = new Array(
+                    '호랑이','사자','고양이','강아지','돼지',
+                    '소','하마','얼룩말','조랑말','펭귄','고래',
+                    '낙타','기린','사슴', '원숭이', '악어', '코뿔소',
+                    '아르마딜로', '두더지', '햄스터', '상어', '독수리',
+                    '임팔라', '늑대', '거북이', '족제비', '수달'
+                    );
+                result = '';
+                const size = characters.length
+                
+                result += characters[Math.floor(Math.random()*size)];
+                
+                return result;
+            }
+
+        });//jQuery end
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h2>SeSAC TALK</h2>
+        <div class="row">
+            <div class="col-md-8">
+                닉네임<br> <img src="./images/먼치킨.jpg" style="width:35px;" alt="" >
+                <button id="nick_btn" class="btn btn-primary">닉네임생성</button>
+                <input type="text" name="nick" id="nick" class="form-control" style="width:145px;"> <br>
+                
+
+                메시지<input type="text" name="txt" id="txt" class="form-control"><br>
+                <button id="btn" class="btn btn-primary" >전송</button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div id="msg" style=" overflow:scroll; padding:5px;">
+
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+    </div>
+</body>
+</html>

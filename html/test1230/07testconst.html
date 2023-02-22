@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+
+<script>
+    const phoneMap = {
+        'LG' : '엘지',
+        'KT' : '케이티',
+        'SK' : '에스케이',
+        'SAC' : '새싹'
+    }
+
+    function myphone(kind){
+        return phoneMap[kind];
+    }//myphone end
+    
+    function test(){
+        data = myphone('LG');
+        msg = '대상'+ data;
+        document.getElementById('display').innerHTML = msg;
+    }//test end
+
+</script>
+
+</head>
+
+
+
+<body>
+    <h2>07testconst.html</h2>
+
+    <div id="display"></div>
+    <input type="button" onclick="test()" value="상수test확인">
+</body>
+</html>

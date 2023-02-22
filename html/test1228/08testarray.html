@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+
+<script>
+    function myfruit(){
+        fruits = ['키위', '한라봉', '홍시', '자두', '복숭아'];
+        emp = [
+            {'name': '아마존', 'price' : 3400},
+            {'name': '네이버', 'price' : 1200},
+            {'name': '카카오', 'price' : 1400},
+        ];
+        data = '';
+
+        for(k=0; k<emp.length; k++){
+            data += emp[k].name + ' ' + emp[k].price + '<br>';
+        }
+
+        
+        //for(k=0;k<fruits.length;k++){
+            //document.write(fruits[k], '<br>');
+            //data += fruits[k] + '<br>'
+        //}
+
+        //for(j in fruits){data += fruits[j] + '<br>'}
+        document.getElementById("display").innerHTML= data;
+    }    
+    
+
+</script>
+</head>
+<body>
+    <h3>08test배열문서 emp</h3>
+    <div id="display"></div>
+    <button onclick="myfruit()">배열emp</button>
+</body>
+</html>

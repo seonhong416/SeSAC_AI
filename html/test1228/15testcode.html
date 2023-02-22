@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15code</title>
+
+<script>
+    function myNullCheck(){
+        vcode = document.getElementById("code").value;
+        vemail = document.getElementById("email").value;
+        if(vcode==null || vcode==""){
+            //alert('code를 입력해주세요.');
+            document.getElementById("code_ch").innerHTML="<font style='color:red'><small>*code를 입력해주세요.</small></font>"
+            return false;
+        }else{
+            document.getElementById("code_ch").innerHTML=""
+        }
+
+        //문제1 code자릿수 6자리수
+
+        if(vcode.length != 6){
+            document.getElementById("code_ch").innerHTML="<font style='color:red'><small>*4자리수를 입력해주세요.</small></font>";
+            document.getElementById("code").value="";
+            return false;
+        }else{
+            document.getElementById("code_ch").innerHTML=""
+        }
+    }//myNullCheck end
+
+    // 문제2 code 입력란에 문자를 입력하면 자동삭제 숫자만 출력
+    function myCodeCheck(){ //고전적인방법의 정규식
+        mycode = document.myform.code.value;
+        size = mycode.length;
+        code_re = /^[0-9]$/;
+        for(k=0; k<size; k++){
+            if(code_re.test(mycode[k])==false){
+                alert('숫자데이터를 입력하셔야 됩니다');
+                document.myform.code.value = mycode.substring(0,k);   
+                // document.getElementById("code").focus();
+            }
+        }
+    } //my codeCheck end
+        
+    function myCodeCheckB(){
+        mycode = document.myform.code.value;
+        size = mycode.length;
+        //code_re = new RegExp(/^[^0-9]$/);
+        code_re = /[^0-9]/;
+        for(k=0; k<size; k++){
+            if(code_re.test(mycode[k])){
+                alert('+++++12월 29일 숫자데이터를 입력하셔야 됩니다');
+                document.myform.code.value = mycode.substring(0,k);   
+                // document.getElementById("code").focus();
+            }
+        }
+    }//myCodeCheckB end
+
+    function myCodeCheckC(){
+        mycode = document.myform.code.value;
+        size = mycode.length;
+        //code_re = new RegExp(/^[^0-9]$/);
+        code_re = /[^0-9]/;
+        for(k=0; k<size; k++){
+            //if(code_re.test(mycode[k]) == true){
+            if(mycode[k].match(code_re)){    
+                alert('!!!!!!!!!!!!!!12월 29일 숫자데이터를 입력하셔야 됩니다');
+                document.myform.code.value = mycode.substring(0,k);   
+                // document.getElementById("code").focus();
+            }
+        }
+    }//myCodeCheckC end
+</script>
+</head>
+<body>
+    15testcode.html 12-29 목요일 10시 32분 <br>
+    <form name="myform" action="">
+        코드: <input type="text" name="code" id="code" value="78" onkeyup="myCodeCheckC()">
+        <span id="code_ch"></span><br>
+        메일: <input type="text" name="email" id="email"><br>
+        <input type="button" name="" id="" value="확인버튼" onclick="myNullCheck()" >
+        <input type="reset" name="" id="" value="입력취소">
+    </form>
+</body>
+</html>

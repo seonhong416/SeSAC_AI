@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+
+<style>
+    *{font-size: 20pt; font-weight: bold; }
+</style>
+</head>
+<body>
+10testcode.html -부트스트랩버튼 <p>
+ <form action="">
+    코 드: <input type="text" name="code" id="code" size="10" value="7789">
+           <input type="button" onclick="mypopcorn()" id="mypop" value="중복체크">
+           <span id="code_ch"></span> <br>
+    메 일: <input type="text" name="email" id="email"  value="kim@se.com"> 
+            <span id="email_ch"></span>  <br>
+            <input type="button" value="확인버튼"  onclick="myNullCheck()" name="mybutton" id="mybutton">
+            <input type="reset" value="입력취소">
+ </form>  
+ <p></p>
+ <div id="display">
+
+ </div>
+
+ <p></p><hr>
+
+ <!-- bootstrap버튼-->
+ <button class="btn"> basic </button>
+ <button class="btn btn-primary"> primary </button>
+ <button class="btn btn-success"> success </button>
+ <button class="btn btn-info"> info </button>
+ <button class="btn btn-warning"> warning </button><p></p>
+ <button class="btn btn-danger"> danger </button>
+ <button class="btn btn-secondary"> secondary </button>
+ <button class="btn btn-dark"> dark </button>
+ <button class="btn btn-light"> light </button>
+ <button class="btn btn-link"> link </button>
+ <p></p>
+ <hr>
+ <p></p>
+ <button class="btn"> basic </button>
+ <button class="btn btn-outline-primary"> primary </button>
+ <button class="btn btn-outline-success"> success </button>
+ <button class="btn btn-outline-info"> info </button>
+ <button class="btn btn-outline-warning"> warning </button><p></p>
+ <button class="btn btn-outline-danger"> danger </button>
+ <button class="btn btn-outline-secondary"> secondary </button>
+ <button class="btn btn-outline-dark"> dark </button>
+ <button class="btn btn-outline-light"> light </button>
+ <button class="btn btn-outline-link"> link </button>
+<p></p>
+<hr>
+<p></p>
+<button class="btn btn-success btn-lg" > success </button>
+<button class="btn btn-success" > success </button>
+<button class="btn btn-success btn-sm" > success </button>
+<button class="btn btn-info btn-block" > info </button>
+<p></p>
+<button class="btn btn-info btn-block" > <img src="./images/bar.gif" alt=""> </button>
+<p></p>
+<button class="btn btn-success" > success </button>
+<button class="btn btn-success active" > success </button>
+<button class="btn btn-warning" disabled>
+    <span class="spinner-border spiner-border-sm"></span>
+    <span class="spinner-grow spiner-grow-sm"></span>
+</button><p></p>
+
+
+<script>
+    flag = false; //전역변수
+
+    function myNullCheck(){  
+      vcode = document.getElementById("code").value;
+      vemail = document.getElementById("email").value;
+      if(vcode==null || vcode==""){
+        alert('myNullCheck 코드데이터가 공백입니다');
+        document.getElementById("display").innerHTML="";
+        document.getElementById("code").focus();
+        return false;
+       }else{document.getElementById("email").focus(); }
+
+       if(vemail==null ||vemail==""){
+        alert('myNullCheck 코드데이터가 공백입니다');
+        document.getElementById("display").innerHTML="";
+        document.getElementById("vemail").focus();
+        return false;
+       }
+ 
+       if(flag==false){
+        alert('아이디중복체크를 꼭 하세요');
+        document.getElementById("mypop").focus();
+        return false;
+       }
+
+       msg = '<h2 style="color:green">코드:' +  vcode + '  메일:' + vemail + '</h2>';
+       document.getElementById("display").innerHTML = msg;
+    }//end
+
+    function mypopcorn(){
+       flag = true; //전역변수
+       vcode = document.getElementById("code").value;
+       if(vcode==null || vcode==""){
+        alert('mypopcorn 코드데이터가 공백입니다');
+        document.getElementById("display").innerHTML="";
+        document.getElementById("code").focus();
+        return false;
+       }
+
+       //window.open(1문서,2창제목,3옵션);
+       window.open("openID.html", "sac", "width=500,height=200,left=1700,top=100");
+    }//end
+</script>  
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+
+
+<script>
+    function execDaumPostcode(){
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var fullAddr = data.roadAddress; // 도로명 주소 변수
+                var extraAddr = ''; // 도로명 조합형 주소 변수
+
+                if(data.userSelectedType === 'R'){
+                    fullAddr = data.roadAddress;
+                }else{
+                    fullAddr = data.jibunAddress;
+                }
+
+                if(data.userSelectedType === 'R'){
+                    if(data.bame !== ''){
+                        extraAddr += data.bname;
+                    }
+                    if(data.buildingName !==''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+
+                    fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
+                }
+                document.getElementById('jusocode').value = data.zonecode;
+                document.getElementById('juso1').value = fullAddr;
+                document.getElementById('juso2').focus();
+
+
+            }
+        }).open();
+
+    }
+
+
+
+</script>
+</head>
+<body>
+    <h2>12-29-목요일 daum주소록</h2>
+
+    <form action="">
+        코 드:  <input type="text" name="" id="" value="7800">  <br>
+        메 일:  <input type="text" name="" id=""  placeholder="kim@nate.com">   <br>
+        우 편:  <input type="text" name="jusocode" id="jusocode" size="9" disabled> 
+                <input type="button" value="우편번호" onclick="execDaumPostcode()">
+        <br>
+        주 소:  <input type="text" name="juso1" id="juso1" readonly>   <br>
+        상 세:  <input type="text" name="juso2" id="juso2">   <br>
+
+        <input type="button" name="" id="" value="데이터등록">
+        <input type="reset" name="" id="" value="입력취소">
+    </form>
+</body>
+</html>

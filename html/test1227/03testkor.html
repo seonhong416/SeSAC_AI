@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+
+<script>
+    
+    function mycal(){
+        msg = '';
+        ret = '';
+        kor = 40;
+        eng = 85;
+        hap = kor + eng;
+        avg = hap/2;
+        //문제1 평균 70점부터 축합격 0~69점 재시험
+        if(avg>=70){ret='축합격';}
+        else{ret='재시험'}
+        
+        //document.write('총점=', hap, '<br>');
+        //document.write('평균=', avg);
+        msg = '총점=' + hap + '<br>' + '평균=' + avg +'<br>';
+        msg = msg + '결과 = ' + ret;
+        //document.getElementById('display').innerText = msg;
+        document.getElementById('display').innerHTML = msg;
+    }
+</script>
+</head>
+<body>
+    <h2>03testkor.html 자바스크립트연습</h2>
+    <div id="display"></div>
+    <input type="button" value="데이터확인" onclick="mycal();">
+</body>
+</html>

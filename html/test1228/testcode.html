@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+
+<script>
+
+
+    // 문제2 code 입력란에 문자를 입력하면 자동삭제 숫자만 출력
+    function myCodeCheck(){
+        mycode = document.myform.code.value;
+        size = mycode.length;
+        code_re = /[^0-9]/g;
+        for(k=0; k<size; k++){
+            if(code_re.test(mycode[k])==true){
+                alert('숫자데이터를 입력하셔야 됩니다');
+                document.myform.code.value = mycode.replace(code_re,'');   
+            
+            }
+        }
+        
+
+    }//myCodeCheck edn
+
+    
+</script>
+</head>
+<body>
+    (김선홍)05testcode.html <br>
+    <form name="myform" action="">
+        코드: <input type="text" name="code" id="code" value="78" onkeyup="myCodeCheck()">
+        <span id="code_ch"></span><br>
+        메일: <input type="text" name="email" id="email"><br>
+        <input type="button" name="" id="" value="확인버튼" onclick="myNullCheck()" >
+        <input type="reset" name="" id="" value="입력취소">
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>07</title>
+    <style>
+        *{
+            font-size: 16pt;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://www.google.com/search" method="get">
+        <input type="text" name="query" placeholder="검색키워드 입력하세요" value="월드컵">
+        <input type="submit" value="G구글검색">
+        <!-- <input type="button" value="G구글검색"> -->
+        <!-- button은 폼태그 action속성문서 연결이 바로 안됨 -->
+        <!-- submit은 폼태그 action속성문서 연결이 바로 됨 -->
+    </form>
+    <p></p>
+
+    <form action="https://search.naver.com/search.naver" > <!-- method 생략시엔 get 이 default-->
+        <input type="text" name="query" placeholder="검색키워드 입력하세요" >
+        <input type="submit" value="네이버검색">
+    </form>
+    
+</body>
+</html>
