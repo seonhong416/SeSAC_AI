@@ -1,6 +1,6 @@
 import random
 from Recognition import RecognitionService
-from StorageService import StorageService
+from Storage import StorageService
 
 class ObjectDetectionDemo() :
     
