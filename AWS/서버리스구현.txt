@@ -1,0 +1,60 @@
+chalice를 사용하여 로컬에서 서버 구현
+	--------------- 가상환경 설정 ------------------------------
+	- python -m venv ObjectDetector (--without-pip)
+	- ObjectDetector\Scripts\activate
+	(- curl https://bootstrap.pypa.io/get-pip.py | python)
+	- pip install boto3
+	- pip install chalice
+	- cd ObjectDetector
+	- chalice new-project stu05_Capabilities
+	- stu05_Capabilities 아래에 chalicelib 폴더를 만들고 그 아래에 __init__.py 만들기
+	- ObjectDetector 아래에 Website 폴더 만들고 html파일 작성
+	----------------개		발---------------------------------
+	- s3 버킷 구성
+		- stu05.service.content, stu05.service.website 만들기	
+	- 서비스 구현부 개발
+		- chalicelib 폴더 아래에 recognition 서비스 이용 클래스 생성
+		- cahlicelib 폴더 아래에 s3 접근 하여 리로스 가져오는 클래스 생성
+	- 엔드포인트 개발
+		- app.py에 Recognition.py와 Storage.py 호출하여 객체탐지 서비스를 구현
+	- 백엔드 테스트
+		- chalice local (로컬에서 서버 가동)
+	- 프론트 테스트
+		- Website 폴더로 가서 index.html 파일 실행
+		- 사진이 로드되지 않을 경우
+		- S3 퍼블릭 엑세스로 설정
+	----------------배		 포---------------------------------------------
+	- 권한 추가
+		- AmazoneAPIGatewayAdministrator
+		- AWSLambda_FullAccess
+		- IAMFullAccess
+	- 권한 설정 수정
+		- .chalice 폴더 아래에있는 config.json 폴더에 "dev" : {} 부분에 "autogen_policy" : false 추가
+	- 수동 설정 파일 생성
+		- .chalice 폴더 아래에 policy-dev.json 파일 생성하고 작성
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+        {
+            "Effect" : "Allow",
+            "Action" : [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "s3:*",
+                "rekognition:*"
+            ],
+            "Resource" : "*"
+        }
+    ]
+}
+	- 백엔드 AWS에 배포
+		- stu05_Capabilities 폴더 경로로 이동하여 chalice deploy
+	
+	- 프론트엔드 AWS에 배포
+		- 프론트용 버킷 만들고 퍼블릭 설정하기	
+		- 엔드포인트 확인 
+			- 프론트용 버킷 > 속성 > 맨아래 내려서 정적웹사이트 호스팅에 있는 주소 복사
+		- scripts.js 파일 수정해서 Website아래에 있는 파일 버킷에 올리기
+
+위에 단계를 거쳐서 객체탐지서비스 서버리스환경으로 구현
